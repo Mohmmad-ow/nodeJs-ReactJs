@@ -7,8 +7,8 @@ import {
 import App from './App.jsx'
 import './index.css'
 import Add from './pages/add.jsx';
-// import View from './pages/view.jsx';
-
+import View from './pages/view.jsx';
+import Update from './pages/update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/addToDo",
     element: <Add />
+  },
+  {
+    path: "/view",
+    element: <View />
+  },
+  {
+    path: "/update/:id",
+    element: <Update />
   }
 ]);
 

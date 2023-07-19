@@ -1,16 +1,10 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react"
+import axios from "axios"
+// import path from "../main"
 
-function App() {
-  
-
-  return (
-    <div>
-      <h1>todo App with using MERN stack</h1>
-    </div>
-  );
+export default function Add() {
+    
+    return (
+        <h1 className="bg-green-600">NodeJs + ReactJs</h1>
+    )
 }
-
-export default App;
