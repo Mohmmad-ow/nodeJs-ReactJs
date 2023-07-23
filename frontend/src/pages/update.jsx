@@ -1,7 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
-import { useLocation } from "react-router-dom"
-// import path from "../main"
+
 
 export default function ToDoUpdate({todo, handleUpdateEditing}) {
     const [data, setData] = useState({
@@ -14,7 +13,6 @@ export default function ToDoUpdate({todo, handleUpdateEditing}) {
         setData(data => ({...data, [e.target.name]: e.target.value}))
     }
     async function handleClick(e) {
-        
         e.preventDefault();
         axios.put(`http://localhost:3000/api/todos/view/${id}/update/`, data);
         handleUpdateEditing();
