@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import App from './App.jsx'
 import './index.css'
-import Add from './pages/add.jsx';
-import View from './pages/view.jsx';
-import Update from './pages/update.jsx';
-
+import Add from './pages/todos/add.jsx';
+import View from './pages/todos/view.jsx';
+import Update from './pages/todos/update.jsx';
+import Register from './authentication/register.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/update/:id",
     element: <Update />
+  },
+  {
+    path: "/user/register",
+    element: <Register />
   }
 ]);
 

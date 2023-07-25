@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv"
-import Router from "./router/index.js";
+import toDoRouter from "./router/todoRoutes.js";
+import usersRouter from "./router/userRoutes.js"
 import mySql from "mysql";
 import cors from "cors"
 
@@ -13,9 +14,14 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors())
 app.use(express.json())
-app.use( "/api/todos",Router)
+app.use(cors())
+
+
+app.use( "/api/todos",toDoRouter)
+app.use("/api/users/", usersRouter)
+
+
  const db =  mySql.createConnection({
                 user: "root",
                 database: "todoList",

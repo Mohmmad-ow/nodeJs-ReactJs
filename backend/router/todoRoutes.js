@@ -66,6 +66,6 @@ router.delete("/view/:id/delete", (req, res) => {
     }
   })
 
-})
+});
 
 export default router;
