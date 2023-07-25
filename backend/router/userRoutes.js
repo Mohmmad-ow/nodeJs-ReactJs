@@ -21,11 +21,12 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
     const {email, password} = req.body;
+    console.log(req.body)
     const query = "SELECT * FROM users WHERE email = ?"
     db.query(query, [email], (err, result) => {
         if (err) res.status(500).json({message: "Error when logging in"})
         else if (result.length === 0) {
-            console.log(result)
+            console.log(result + "I'm here")
             res.status(400).json({message: "User not found"})
         } else {
             const user = result[0];
@@ -36,13 +37,14 @@ router.post("/login", (req, res) => {
                 const token = jwt.sign({id: user.id}, "SecretKey", {
                     expiresIn: "1h"
                 });
+                
                 res.json({token: token})
             }
         }
     })
 });
 
-router.get("/protected", verifyToken, (req, res) => {
+router.post("/protected", verifyToken, (req, res) => {
     res.json({ message: "Protected route accessed" });
   });
 

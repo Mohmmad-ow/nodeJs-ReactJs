@@ -5,17 +5,18 @@ import ToDoUpdate from "./update"
 import Add from "./add"
 export default function View() {
     
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [editing, setEditing] = useState(null)
-    const [isAdding, setIsAdding] = useState(false)
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [editing, setEditing] = useState(null);
+    const [isAdding, setIsAdding] = useState(false);
+    const [user, setUser] = useState(null);
     
     useEffect( () => {
     const getData = async () => {
         setIsLoading(true)
         await axios.get("http://localhost:3000/api/todos/view")
         .then(response => { return response.data})
-        .then(Nextdata => {setData(Nextdata)})
+        .then(Nextdata => {setData(Nextdata); setUser(Nextdata)})
         .catch(err => console.log(err))
         setIsLoading(false)
         setEditing(null)
